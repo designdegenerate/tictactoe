@@ -1,0 +1,224 @@
+/**************************************************
+ *
+ * Foundation
+ *
+ **************************************************/
+
+html {
+
+    color-scheme: light dark;
+
+    /*Fonts*/
+    --sans: 'Helvetica Neue', sans-serif;
+
+    /*Type sizes*/
+    /*Generate a typescale*/
+    --fontSizex1: 20px;
+    --fontSizex2: 1.5em;
+    --fontSizex3: 2.25em;
+    --fontSizex4: 3.375em;
+    --fontSizex5: 5.0em;
+    --fontSizex6: 7.6em;
+
+    /*Corresponding line heights*/
+    --lineHeightx1: 1.5;
+    --lineHeightx2: 1.5;
+    --lineHeightx3: 1.5;
+    --lineHeightx4: 1.5;
+    --lineHeightx5: 1.5;
+    --lineHeightx6: 1.5;
+
+      /*Colours*/
+    --white: #fff;
+    --dark: black;
+
+    /*Set base colour scheme*/
+    --primary-color: var(--dark);
+    --bg-color: var(--white);
+}
+
+/*
+ * Set dynamic color theming
+ * Some components will need manual adjustments
+ */
+
+
+/* If nothing is set, use light theme by default*/
+
+@media (prefers-color-scheme: light) {
+    html {
+        --primary-color: var(--dark);
+        --bg-color: var(--white);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        --primary-color: var(--white);
+        --bg-color: var(--dark);
+    }
+
+}
+
+html {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+
+/**************************************************
+ *
+ * Resets
+ *
+ **************************************************/
+
+html, body {
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+video {
+    width: auto;
+    height: auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+video:focus {
+    outline: none !important;
+}
+
+/* Very short durations means JavaScript that relies on events still works */
+@media screen and (prefers-reduced-motion: reduce) {  
+    * {
+        
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        transition: 0.001ms !important;
+    }
+}
+
+[id] {
+    scroll-margin-top: 15vh;
+}
+
+/**************************************************
+ *
+ * Base Typographic Styles
+ *
+ **************************************************/
+
+body {
+    font-family: var(--sans);
+    line-height: 1.5;
+}
+
+p, 
+li {
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+/**************************************************
+ *
+ * Layout
+ *
+ **************************************************/
+
+main {
+    max-width: fit-content;
+    margin: 2rem auto;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: var(--fontSizex4);
+}
+
+ul {
+    margin-top: 4rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 6rem 6rem 6rem;
+    grid-template-rows: 6rem 6rem 6rem;
+    gap: 1px;
+}
+
+li {
+    font-size: var(--fontSizex4);
+    background: none;
+    display: grid;
+    place-content: center;
+    outline: 1px solid var(--primary-color);
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+main p {
+    margin-top: 2rem;
+    font-size: var(--fontSizex2);
+}
+
+[hidden] {
+    display: none;
+}
